@@ -14,6 +14,7 @@ class _CharacterBiographyPageState extends State<CharacterBiographyPage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
+        backgroundColor: Color(0xFFE4A11B),
         title: Text('Gia phả của tôi'),
         centerTitle: true,
         leading: IconButton(

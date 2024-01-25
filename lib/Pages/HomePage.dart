@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:genealogy/Pages/HomeSearch.dart';
+
+import 'CharacterBiographyPage.dart';
+import 'EventPage.dart';
+import 'Notification.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -81,32 +86,37 @@ class _HomePageState extends State<HomePage> {
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 5, left: 5, right: 5, bottom: 5),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 15,
-                                  width: 15,
-                                  child: CircleAvatar(
-                                    backgroundColor: Color(0xFFE4A11B),
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.add,
-                                        size: 15,
-                                        color: Colors.white,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => CharacterBiographyPage(),));
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 15,
+                                    width: 15,
+                                    child: CircleAvatar(
+                                      backgroundColor: Color(0xFFE4A11B),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.add,
+                                          size: 15,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  'Tạo mới',
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ],
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    'Tạo mới',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -115,10 +125,15 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                         top: 50,
                         right: 10,
-                        child: Icon(
-                          Icons.notifications,
-                          color: Colors.white,
-                          size: 40,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage(),));
+                          },
+                          child: Icon(
+                            Icons.notifications,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                         )),
                     Positioned(
                       right: 10,
@@ -168,15 +183,20 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(2),
-                                      child: Container(
-                                        width: 31,
-                                        height: 31,
-                                        decoration: BoxDecoration(
-                                            color: Color(0xFFE4A11B),
-                                            borderRadius: BorderRadius.circular(50)
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => SearchHome(),));
+                                        },
+                                        child: Container(
+                                          width: 31,
+                                          height: 31,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xFFE4A11B),
+                                              borderRadius: BorderRadius.circular(50)
+                                          ),
+                                          child:
+                                              Center(child: Icon(Icons.arrow_forward, color: Colors.white,)),
                                         ),
-                                        child:
-                                            Center(child: Icon(Icons.arrow_forward, color: Colors.white,)),
                                       ),
                                     ),
                                   ],
@@ -184,12 +204,103 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                    )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Container(
+                        height: 210,
+                        width: 180,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image(image: AssetImage('lib/assets/cha4.png')),
+                            ),
+                            Text(
+                              'Dòng họ Nguyễn Đông Tác',
+                              textAlign: TextAlign.right,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image(image: AssetImage('lib/assets/cha1.png')),
+                                Text(
+                                  '340 thanh vien',
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            Row(
+                                children: [
+                                  Image(image: AssetImage('lib/assets/cha2.png')),
+                                  Text('Binh Son, Quang Ngai'),
+                                ]
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Container(
+                          height: 210,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(image: AssetImage('lib/assets/cha3.png')),
+                                Text(
+                                  'Tộc Nguyễn Vân',
+                                  textAlign: TextAlign.right,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image(image: AssetImage('lib/assets/cha1.png')),
+                                    Text(
+                                      '340 thanh vien',
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                    children: [
+                                      Image(image: AssetImage('lib/assets/cha2.png')),
+                                      Text('Binh Son, Quang Ngai'),
+                                    ]
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => EventPage(),));
+                      },
+                    ),
                   ],
                 ),
               ],
+
             ),
-          )
+          ),
         ],
       ),
     );
